@@ -46,40 +46,22 @@ Esto abrirá la aplicación en tu navegador web en `http://localhost:3000`.
 
 ---
 
-## 🚀 Publicar en GitHub Pages
+## 🚀 Public Link & Despliegue en GitHub Pages
 
-Este proyecto ya está listo para subir a **GitHub Pages**. Sigue estos sencillos pasos:
+### 🌐 Link Público del Proyecto
+Tu proyecto desplegado estará disponible en:  
+👉 **[https://feliipee04.github.io/GuanaCheckApp/](https://feliipee04.github.io/GuanaCheckApp/)**
 
-### Paso 1: Inicializar repositorio Git y subir a GitHub
+---
 
-```bash
-# Inicializar repositorio git
-git init
+### ⚙️ Configuración en GitHub (Paso Único)
 
-# Agregar los archivos
-git add .
-git commit -m "Initial commit - BuildStock Pro"
+Para activarlo en tu repositorio de GitHub:
+1. Ve a tu repositorio en GitHub: `https://github.com/Feliipee04/GuanaCheckApp`
+2. Ingresa a **Settings** > **Pages**
+3. En **Build and deployment** -> **Source**, selecciona **GitHub Actions**.
 
-# Crear la rama principal
-git branch -M main
-
-# Vincular con tu repositorio en GitHub
-git remote add origin https://github.com/TU-USUARIO/NOMBRE-DEL-REPO.git
-
-# Subir código a GitHub
-git push -u origin main
-```
-
-### Paso 2: Desplegar en GitHub Pages
-
-Para construir y publicar el sitio estático automáticamente en la rama `gh-pages`:
-
-```bash
-npm run deploy
-```
-
-¡Listo! Tu aplicación estará pública en:  
-`https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/`
+Con la configuración agregada en `.github/workflows/deploy.yml`, **cada commit o push a la rama `main` compilará y desplegará automáticamente el sitio público.**
 
 ---
 
