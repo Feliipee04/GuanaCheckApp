@@ -1,4 +1,4 @@
-# 🏗️ BuildStock Pro - Sistema de Inventario para Construcción
+# 🏗️ GuanaCheckApp - Sistema de Inventario para Construcción
 
 Un sistema moderno, ágil y visualmente atractivo para el control de inventario de materiales, maquinaria pesada, herramientas y equipos de protección (EPP) en proyectos de construcción y obras.
 
