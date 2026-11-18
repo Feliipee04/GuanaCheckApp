@@ -1,5 +1,5 @@
 {
-  "name": "inventario-construccion",
+  "name": "guanacheckapp",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -12,6 +12,9 @@
     "deploy": "node ./node_modules/gh-pages/bin/gh-pages.js -d dist"
   },
   "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/cli": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
     "lucide-react": "^0.469.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

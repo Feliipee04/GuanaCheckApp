@@ -68,7 +68,7 @@ Con la configuración agregada en `.github/workflows/deploy.yml`, **cada commit 
 ## 📁 Estructura del Proyecto
 
 ```
-inventario/
+GuanaCheckApp/
 ├── index.html                  # HTML principal con Google Fonts
 ├── package.json                # Configuración de scripts (npm start, deploy) y dependencias
 ├── vite.config.js              # Configuración de Vite con ruta relativa base: './'

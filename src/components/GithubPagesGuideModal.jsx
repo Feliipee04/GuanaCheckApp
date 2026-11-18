@@ -47,14 +47,14 @@ export default function GithubPagesGuideModal({ isOpen, onClose }) {
               2. Crear y Vincular Repositorio en GitHub
             </h3>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
-              Crea un repositorio en GitHub (ej. <code style={{ color: '#fff' }}>inventario-construccion</code>) y sube tu código:
+              Crea un repositorio en GitHub (ej. <code style={{ color: '#fff' }}>GuanaCheckApp</code>) y sube tu código:
             </p>
             <div style={{ background: 'var(--bg-primary)', padding: '0.75rem', borderRadius: '6px', fontFamily: 'monospace', fontSize: '0.82rem', color: '#cbd5e1', lineHeight: '1.6' }}>
               git init<br />
               git add .<br />
-              git commit -m "Initial commit - BuildStock Pro"<br />
+              git commit -m "Initial commit - GuanaCheckApp"<br />
               git branch -M main<br />
-              git remote add origin https://github.com/TU-USUARIO/inventario-construccion.git<br />
+              git remote add origin https://github.com/TU-USUARIO/GuanaCheckApp.git<br />
               git push -u origin main
             </div>
           </div>
