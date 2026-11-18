@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ClipboardList, PlusCircle, Search, CheckCircle2, XCircle, Clock, ChevronDown } from 'lucide-react';
+import { ClipboardList, PlusCircle, Search, CheckCircle2, XCircle, Clock, ChevronDown, ArrowLeft } from 'lucide-react';
 
 const estadoColors = {
   'Aprobado':  { bg: 'rgba(16,185,129,0.15)', color: '#10b981', icon: CheckCircle2 },
@@ -14,7 +14,7 @@ const initialPermisos = [
   { id: 'PW-004', tipo: 'Soldadura / Corte',   solicitante: 'Marco Díaz',      area: 'Planta Baja',        fecha: '2026-11-18', estado: 'Pendiente', responsable: 'Ing. Mora' },
 ];
 
-export default function PermisosView() {
+export default function PermisosView({ onBack }) {
   const [permisos, setPermisos] = useState(initialPermisos);
   const [search, setSearch] = useState('');
   const [filtroEstado, setFiltroEstado] = useState('Todos');
@@ -59,6 +59,12 @@ export default function PermisosView() {
     <div className="module-view">
       <div className="module-header">
         <div className="module-title-group">
+          {onBack && (
+            <button className="btn btn-outline back-btn" onClick={onBack} title="Volver al Menú Principal">
+              <ArrowLeft size={18} />
+              <span>Módulos</span>
+            </button>
+          )}
           <div className="module-icon-badge" style={{ background: 'rgba(245,158,11,0.15)', color: '#f59e0b' }}>
             <ClipboardList size={24} />
           </div>

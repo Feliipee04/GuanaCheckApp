@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Wrench, PlusCircle, Search, CheckCircle2, AlertTriangle, XCircle, Tool } from 'lucide-react';
+import { Wrench, PlusCircle, Search, CheckCircle2, AlertTriangle, XCircle, ArrowLeft } from 'lucide-react';
 
 const estadoColors = {
   'Disponible':    { bg: 'rgba(16,185,129,0.15)',  color: '#10b981' },
@@ -19,7 +19,7 @@ const initialHerramientas = [
 
 const categorias = ['Todas', 'Eléctrica', 'Manual', 'Medición', 'Neumática', 'Corte'];
 
-export default function HerramientasView() {
+export default function HerramientasView({ onBack }) {
   const [herramientas, setHerramientas] = useState(initialHerramientas);
   const [search, setSearch] = useState('');
   const [filtroCat, setFiltroCat] = useState('Todas');
@@ -58,6 +58,12 @@ export default function HerramientasView() {
     <div className="module-view">
       <div className="module-header">
         <div className="module-title-group">
+          {onBack && (
+            <button className="btn btn-outline back-btn" onClick={onBack} title="Volver al Menú Principal">
+              <ArrowLeft size={18} />
+              <span>Módulos</span>
+            </button>
+          )}
           <div className="module-icon-badge" style={{ background: 'rgba(16,185,129,0.15)', color: '#10b981' }}>
             <Wrench size={24} />
           </div>

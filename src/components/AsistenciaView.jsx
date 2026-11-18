@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, PlusCircle, Search, CheckCircle2, XCircle, Clock } from 'lucide-react';
+import { Users, PlusCircle, Search, CheckCircle2, XCircle, Clock, ArrowLeft } from 'lucide-react';
 
 const estadoColors = {
   'Presente':  { bg: 'rgba(16,185,129,0.15)', color: '#10b981' },
@@ -19,7 +19,7 @@ const initialEmpleados = [
   { id: 'EMP-006', nombre: 'Juan Pérez',        cargo: 'Albañil',        area: 'Bloque C',    entrada: '--', salida: '--', estado: 'Permiso', fecha: hoy },
 ];
 
-export default function AsistenciaView() {
+export default function AsistenciaView({ onBack }) {
   const [empleados, setEmpleados] = useState(initialEmpleados);
   const [search, setSearch] = useState('');
   const [filtroEstado, setFiltroEstado] = useState('Todos');
@@ -63,6 +63,12 @@ export default function AsistenciaView() {
     <div className="module-view">
       <div className="module-header">
         <div className="module-title-group">
+          {onBack && (
+            <button className="btn btn-outline back-btn" onClick={onBack} title="Volver al Menú Principal">
+              <ArrowLeft size={18} />
+              <span>Módulos</span>
+            </button>
+          )}
           <div className="module-icon-badge" style={{ background: 'rgba(139,92,246,0.15)', color: '#8b5cf6' }}>
             <Users size={24} />
           </div>

@@ -5,12 +5,11 @@ import ItemModal from './ItemModal';
 import StockMovementModal from './StockMovementModal';
 import MovementsHistoryModal from './MovementsHistoryModal';
 import AnalyticsModal from './AnalyticsModal';
-import StatCards from './StatCards';
 
 import { initialInventory, initialCategories, initialLocations } from '../data/initialData';
-import { Package, PlusCircle, Search, LayoutGrid, List, ArrowUpDown, History, BarChart3, Download, Upload, RotateCcw } from 'lucide-react';
+import { Package, PlusCircle, Search, LayoutGrid, List, ArrowUpDown, History, BarChart3, Download, Upload, RotateCcw, ArrowLeft } from 'lucide-react';
 
-export default function InventoryModule({ showToast }) {
+export default function InventoryModule({ showToast, onBack }) {
   const [items, setItems] = useState(() => {
     const saved = localStorage.getItem('guanacheck_inventory');
     return saved ? JSON.parse(saved) : initialInventory;
@@ -142,6 +141,12 @@ export default function InventoryModule({ showToast }) {
       {/* Header */}
       <div className="module-header">
         <div className="module-title-group">
+          {onBack && (
+            <button className="btn btn-outline back-btn" onClick={onBack} title="Volver al Menú Principal">
+              <ArrowLeft size={18} />
+              <span>Módulos</span>
+            </button>
+          )}
           <div className="module-icon-badge" style={{ background: 'rgba(59,130,246,0.15)', color: '#3b82f6' }}>
             <Package size={24} />
           </div>
@@ -172,9 +177,6 @@ export default function InventoryModule({ showToast }) {
           <input type="file" ref={fileInputRef} onChange={e => { if(e.target.files[0]) { handleImportJSON(e.target.files[0]); e.target.value=''; } }} accept=".json" style={{ display: 'none' }} />
         </div>
       </div>
-
-      {/* Stat Cards */}
-      <StatCards items={items} />
 
       {/* Category Pills */}
       <div className="pill-row">

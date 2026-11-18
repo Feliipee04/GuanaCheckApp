@@ -1,20 +1,22 @@
 import React from 'react';
-import { ClipboardList, Package, Wrench, Users, ShieldAlert } from 'lucide-react';
+import { LayoutDashboard, ClipboardList, Package, Wrench, Users, ShieldAlert, LogOut, User } from 'lucide-react';
 
 const modules = [
-  { id: 'permisos',    label: 'Permisos de Trabajo',      icon: ClipboardList,  color: '#f59e0b' },
-  { id: 'inventario',  label: 'Inventario',                icon: Package,        color: '#3b82f6' },
-  { id: 'herramientas',label: 'Herramientas',              icon: Wrench,         color: '#10b981' },
-  { id: 'asistencia',  label: 'Asistencia de Empleados',  icon: Users,          color: '#8b5cf6' },
-  { id: 'alturas',     label: 'Equipos de Alturas',       icon: ShieldAlert,    color: '#ef4444' },
+  { id: 'inicio',       label: 'Menú Principal',            icon: LayoutDashboard, color: '#38bdf8' },
+  { id: 'permisos',     label: 'Permisos de Trabajo',       icon: ClipboardList,   color: '#f59e0b' },
+  { id: 'inventario',   label: 'Inventario',                icon: Package,         color: '#3b82f6' },
+  { id: 'herramientas', label: 'Herramientas',              icon: Wrench,          color: '#10b981' },
+  { id: 'asistencia',   label: 'Asistencia de Empleados',   icon: Users,           color: '#8b5cf6' },
+  { id: 'alturas',      label: 'Equipos de Alturas',        icon: ShieldAlert,     color: '#ef4444' },
 ];
 
 export { modules };
 
-export default function Sidebar({ activeModule, onSelect }) {
+export default function Sidebar({ activeModule, onSelect, currentUser, onLogout }) {
   return (
     <aside className="sidebar">
-      <div className="sidebar-logo">
+      {/* Logo */}
+      <div className="sidebar-logo" onClick={() => onSelect('inicio')} style={{ cursor: 'pointer' }}>
         <div className="sidebar-logo-icon">
           <ShieldAlert size={22} color="#f59e0b" />
         </div>
@@ -24,6 +26,7 @@ export default function Sidebar({ activeModule, onSelect }) {
         </div>
       </div>
 
+      {/* Navegación */}
       <nav className="sidebar-nav">
         {modules.map(({ id, label, icon: Icon, color }) => (
           <button
@@ -41,8 +44,28 @@ export default function Sidebar({ activeModule, onSelect }) {
         ))}
       </nav>
 
+      {/* Footer con Usuario y Cerrar Sesión */}
       <div className="sidebar-footer">
-        <span>GuanaCheckApp v1.0</span>
+        {currentUser && (
+          <div className="sidebar-user-info">
+            <div className="sidebar-user-avatar">
+              <User size={16} />
+            </div>
+            <div className="sidebar-user-text">
+              <span className="sidebar-user-name">{currentUser.name || 'Supervisor'}</span>
+              <span className="sidebar-user-role">{currentUser.role || 'HSE / Obra'}</span>
+            </div>
+          </div>
+        )}
+        <button
+          className="sidebar-logout-btn"
+          onClick={onLogout}
+          title="Cerrar Sesión"
+        >
+          <LogOut size={16} />
+          <span>Cerrar Sesión</span>
+        </button>
+        <span className="sidebar-version">GuanaCheckApp v1.0</span>
       </div>
     </aside>
   );

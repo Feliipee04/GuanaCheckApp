@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldAlert, PlusCircle, Search, CheckCircle2, AlertTriangle, XCircle, Calendar } from 'lucide-react';
+import { ShieldAlert, PlusCircle, Search, CheckCircle2, AlertTriangle, XCircle, Calendar, ArrowLeft } from 'lucide-react';
 
 const estadoColors = {
   'Operativo':       { bg: 'rgba(16,185,129,0.15)', color: '#10b981' },
@@ -17,7 +17,7 @@ const initialEquipos = [
   { id: 'EA-006', nombre: 'Punto de Anclaje Portátil',  marca: 'Falltech',  codigo: 'PA-006', responsable: 'Sin asignar',    ultimaInsp: '2026-08-01', proxInsp: '2026-11-01', estado: 'Fuera de Servicio', cantidad: 1 },
 ];
 
-export default function AlturasView() {
+export default function AlturasView({ onBack }) {
   const [equipos, setEquipos] = useState(initialEquipos);
   const [search, setSearch] = useState('');
   const [showForm, setShowForm] = useState(false);
@@ -59,6 +59,12 @@ export default function AlturasView() {
     <div className="module-view">
       <div className="module-header">
         <div className="module-title-group">
+          {onBack && (
+            <button className="btn btn-outline back-btn" onClick={onBack} title="Volver al Menú Principal">
+              <ArrowLeft size={18} />
+              <span>Módulos</span>
+            </button>
+          )}
           <div className="module-icon-badge" style={{ background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}>
             <ShieldAlert size={24} />
           </div>
